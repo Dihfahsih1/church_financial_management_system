@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+ <br><br>
+    <nav class="nav navbar-expand">
+      <ul class="navbar-nav mr-auto">
+             <li class="nav-item {% if url_name == 'Tithesreport' %}active{% endif %}">
+              <a class="nav-link" href="{% url 'Tithesreport'  %}"><button class="btn btn-primary">Tithes</button></a>
+             </li>
+              <li class="nav-item {% if url_name == 'Offeringsreport' %}active{% endif %}">
+              <a class="nav-link" href="{% url 'Offeringsreport'  %}"><button class="btn btn-primary">Offerings</button></a>
+             </li>
+             <li class="nav-item {% if url_name == 'Pledgesreport' %}active{% endif %}">
+              <a class="nav-link" href="{% url 'Pledgesreport'  %}"><button class="btn btn-primary">Pledges</button></a>
+             </li>
+             <li class="nav-item {% if url_name == 'expenditurereport' %}active{% endif %}">
+              <a class="nav-link"href="{% url 'expenditurereport'  %}"><button class="btn btn-primary">Main Expenses</button></a>
+          </li>
+          <li class="nav-item {% if url_name == 'sundryreport' %}active{% endif %}">
+              <a class="nav-link" href="{% url 'sundryreport'  %}"><button class="btn btn-default">Petty Cash</button></a>
+          </li>
+
+            <li class="nav-item {% if url_name == 'salaryreport' %}active{% endif %}">
+               <a class="nav-link" href="{% url 'salaryreport'  %}"><button class="btn btn-primary">Allowances</button></a>
+          </li>
+
+      </ul>
+    </nav>
+
+    <br><br>
+<div class="float-lg-right">
+    <a href="{% url 'enter_sundryexpense' %}"><button class="btn btn-danger">Make another PettyCash</button></a>
+</div>
+    <h4>The Monthly Small Expenses Report</h4>
+    <p>{{ message }}</p>
+
+     <table class="table table-hover" border="2">
+        <thead class="table-success">
+        <tr>
+            <td>Date</td>
+            <td>Name</td>
+            <td>Reason</td>
+            <td>Amount</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+
+        <tbody>
+    {% if items %}
+
+        {% for item in items%}
+            <tr>
+            <td>{{ item.Date}}</td>
+            <td>{{ item.PaymentMadeTo}}</td>
+            <td>{{ item.ReasonForPayment}}</td>
+            <td>{{ item.Amount}}</td>
+            <td><a href="{% url 'sundryreceipt' item.id %}" target="_new"><button class="btn btn-info">Print Receipt</button></a> |
+            <a href="{% url 'edit_sundry' item.id %}" ><button class="btn btn-warning">Edit Payment</button></a></td></tr>
+         {% endfor %}
+
+
+        <tr><td><b>Total Amount:</b> </td> <td>______________ </td> <td>______________  </td><td><b>{{ total_amount}}</b></td></tr>
+
+        </tbody>
+<tr><td><a href="{% url 'sundrypdf' %} " target="_new" class="btn btn-info bt-sm" role="button">Print Report</a></td>
+<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Archive PettyCash</button></td>
+
+</tr>
+    </table>
+                 <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Petty Cash report archiving</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-primary">Select year and corresponding month to archive(Company Cycle)</h5>
+                        <form class="form-inline" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                            <div class="col-auto my-1">
+                          <label class="mr-sm-2" for="inlineFormCustomSelect">Year</label>
+                          <select class="custom-select mr-sm-2" name="archived_year" id="inlineFormCustomSelect">
+                              {% for report_year in years %}
+                                 <option name="{{ report_year }}" value="{{ report_year }}">{{ report_year }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                            <div class="col-auto my-1">
+                          <label class="mr-sm-2" for="inlineFormCustomSelect">Month</label>
+                          <select class="custom-select mr-sm-2" name="archived_month" id="inlineFormCustomSelect">
+                              {% for report_month in months %}
+                                 <option name="{{ report_month }}" value="{{ report_month }}">{{ report_month }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                         <div class="col-auto my-1">
+                        <button type="submit" class="btn btn-primary">Submit Report</button>
+                        </div>
+                        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>                                         <!-- Button trigger modal -->
+
+
+  </div>
+    {% endif %}
+
+{% endblock %}

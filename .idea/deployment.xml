@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="CanonWeb">
+    <serverData>
+      <paths name="CanonWeb">
+        <serverdata>
+          <mappings>
+            <mapping deploy="cims.canoninnovationsltd.com/canonapp/accountantapp" local="$PROJECT_DIR$" web="cims.canoninnovationsltd.com/canonapp/accountantapp" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

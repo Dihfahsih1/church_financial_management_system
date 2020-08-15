@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Driver General Financial Report</title>
+    <style type="text/css">
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 5px;
+            background-color: #fff;
+        }
+        .table th,
+        .table td {
+            padding: 5px;
+            vertical-align: top;
+            border-top: 1px solid #000;
+            text-align: center;
+        }
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #000;
+        }
+        .table tbody + tbody {
+            border-top: 2px solid #000;
+        }
+        .table .table {
+            background-color: #fff;
+        }
+        .list-group {
+            display: block;
+            width: 100%;
+            list-style: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .list-group p {
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            list-style: none;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>generated on - {{ today | date:"d/m/Y" }}</h3>
+        </div>
+        <div align="center">
+                   <h1><b>UCC - BWAISE </b></h1>
+                 <h3>+256701614086</h3>
+                 <h3>Nabweru, Kampala Rd</h3>
+               <h3>uccbwaise1@gmail.com</h3>
+         </div>
+        <div class="list-group">
+            <p>Monthly Archived Expenses Report for   {{ report_month }} {{ report_year }} </p>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr><td>No.</td>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Reason</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+
+        {% for report in archived_expenses %}
+
+            <tr>
+            <td>{{ report.id }}</td>
+
+            <td>{{ report.Date }}</td>
+
+            <td>{{ report.Name }}</td>
+
+            <td>{{ report.Reason}}</td>
+
+            <td>{{ report.Amount }}</td>
+
+         {% endfor %}
+
+         </tr>
+         <tr>
+             <td><h5>Total Amount: {{ total_amount }} </h5></td>
+
+         </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

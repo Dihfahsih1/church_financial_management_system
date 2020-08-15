@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+  <div class="col-lg-12"  >
+   <div class="col-lg-6 float-lg-left">
+            <div class=" container jumbotron">
+
+              <h3> Welcome To UCC Bwaise Church System</h3>
+                {% load static %}
+                <img width="100%" src="{% static "media/uccchurch.jpg" %}">
+
+            </div>
+
+        </div>
+    <div class="col-lg-6 float-lg-right">
+            <div class=" container jumbotron">
+
+              <h2> The Accounts Department</h2>
+                <h4> Accountant's Roles</h4>
+                <ul class="list-group">
+                    <li class="list-group-item-info"><h3> Receive Pledgess</h3></li>
+                    <li class="list-group-item-info"><h3> Generate Receipts </h3></li>
+                    <li class="list-group-item-info"><h3> Make Main Expenses</h3></li>
+                    <li class="list-group-item-info"><h3> Make petty cash</h3></li>
+                    <li class="list-group-item-info"><h3> Issue Allowances </h3></li>
+                    <li class="list-group-item-info"><h3> Generate Financial report</h3></li>
+                     <li class="list-group-item-info"><h3> Record Tithes, offerings and church donations</h3></li>
+                    <li class="list-group-item-info"><h3> Submit Monthly Reports to the Church Admin</h3></li>
+                    <li class="list-group-item-info"><h3> Monitor Church Finances</h3></li>
+                    <li class="list-group-item-info"><h3> Archiving of financial records</h3></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <div class="col-lg-6">
+
+        </div>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% block body %}
+<div class="container">
+<h4>UCC Staff</h4>
+    <table class="table table-hover" border="2">
+    <thead class="font-weight-bold ">
+    <tr>
+
+        <td>First Name</td>
+        <td>Second Name</td>
+        <td>Role</td>
+         <td>Salary Amount</td>
+    </tr>
+    </thead>
+
+        <tbody>
+        {% for staff in Staffs %}
+        <tr>
+        <td>{{ staff.FistName }}</td>
+        <td>{{ staff.SecondName}}</td>
+        <td>{{ staff.Role}}</td>
+        <td>{{ staff.Salary}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+</div>
+{% endblock %}

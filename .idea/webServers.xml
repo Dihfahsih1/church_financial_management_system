@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7a17ada5-6d3e-4dd5-9a1a-fa0ae507c826" name="CanonWeb" url="http://cims.canoninnovationsltd.com/">
+        <fileTransfer host="cims.canoninnovationsltd.com" port="21" rootFolder="/receptionist/">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

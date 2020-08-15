@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Offerings Collection</title>
+
+        {% load staticfiles %}
+
+    <link type="text/css" rel="stylesheet" href="{% static '/css/bootstrap.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static '/styles.css' %}"/>
+       <style type="text/css">
+
+           @page {
+            size: A5;
+            margin: 1cm;
+        }
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+</head>
+<body>
+<p style="font-size: smaller">Generated on:{{ today }}</p>
+  <div class='wrapper'>
+
+
+        <div align="center">
+                   <b>UCC - BWAISE </b><br>
+                 +256701614086<br>
+                 Nabweru, Kampala Rd<br>
+               uccbwaise1@gmail.com<br>
+         </div>
+
+        <div>
+        <div class='details'>
+            <h1 align="center"><u> OFFERINGS OF THE DAY</u></h1>
+            <hr>
+            <strong style="font-size: large"> Number:</strong>&nbsp;{{ offerings.id }}<br><br>
+            <strong style="font-size: large">Date:</strong>&nbsp;{{ offerings.Date }}<br><br>
+            <strong style="font-size: large">Day Of The Week:</strong>&nbsp;{{ offerings.DayOfTheWeek}}<br><br>
+           <strong style="font-size: large">Total Collected:</strong>&nbsp;{{ offerings.TotalOffering}}<br><br>
+            <strong style="font-size: large">Amount (In figures):</strong>&nbsp;{{ offerings.AmountInWords}}<br><br>
+
+
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>
