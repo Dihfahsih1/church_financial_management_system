@@ -1,7 +1,17 @@
 # church_financial_management_system
 
 This is a simple web application that helps the church manage it's finances i.e incomes, expenses and other financial transactions made at church
+## Requirements
+ -  install Python
+ 
+ - install git.
+ 
+ - clone this repository using this command `git clone https://github.com/Dihfahsih1/church_financial_management_system.git `
 
+ - Django, install it using this command `pip install django`
+ 
+ - django-crispy-form, can be installed using `pip install django-crispy-form `
+ 
 ## Church Management System Version 1:
 
 In this version, there are a few basic functionalities made for a small church with a few financial requirements, the features include
