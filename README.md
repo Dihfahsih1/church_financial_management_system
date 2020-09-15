@@ -31,7 +31,7 @@ In this version, there are a few basic functionalities made for a small church w
  
  - Archived Records
 
-## Church Management System Version 2
+## Church Management System Version 2 (In a private repository)
 
 This is a more advanced and robust system as compared to version one and has many functionality which include the following modules;
 
